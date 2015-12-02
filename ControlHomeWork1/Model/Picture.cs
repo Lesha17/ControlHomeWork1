@@ -86,10 +86,10 @@ namespace ControlHomeWork1.Model
             shapes.Add(ra);
             shapes.Add(rh);
 
-            shapes.Add(h);
-
             shapes.Add(le);
             shapes.Add(re);
+
+            shapes.Add(h);
         }
     }
 }

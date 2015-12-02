@@ -26,6 +26,7 @@
             (M + B).ToDrawingPoint(width, height)};
 
             gr.DrawPolygon(Statics.PEN, points);
+
         }
 
         public override void DrawColorful(System.Drawing.Graphics gr, int width, int height)

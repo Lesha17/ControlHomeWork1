@@ -20,6 +20,7 @@ namespace ControlHomeWork1.Model.Shapes.Primitives
             System.Drawing.Point[] points = { M.ToDrawingPoint(width, height),
                                             (M+A).ToDrawingPoint(width, height),
                                             (M+B).ToDrawingPoint(width, height)};
+
             gr.DrawPolygon(Statics.PEN, points);
         }
 

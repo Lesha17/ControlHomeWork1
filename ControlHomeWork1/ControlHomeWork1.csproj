@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MonteCarlo.cs" />
+    <Compile Include="Controller\MonteCarlo.Draw.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -12,8 +12,8 @@ namespace ControlHomeWork1.Controller
 {
     partial class MonteCarlo
     {
-        private Dictionary<Shape, List<Point>> points = new Dictionary<Shape, List<Point>>();
-        private List<Point> pointNotInPicture = new List<Point>();
+        private Dictionary<Shape, HashSet<Point>> points;
+        private HashSet<Point> pointNotInPicture;
         private Boolean running = false;
 
         public Picture Picture { get; set; }
@@ -22,22 +22,19 @@ namespace ControlHomeWork1.Controller
         {
             this.Picture = pict;
 
-            foreach(Shape sh in pict.Shapes)
-            {
-                points.Add(sh, new List<Point>());
-            }
+            Reset();
         }
 
         
 
-        public async Task Start(int duration)
+        public async Task Start()
         {
             lock (this)
             {
                 running = true;
             }
 
-            await createPoints(duration);
+            await createPoints();
         }
 
         public async Task Stop()
@@ -48,22 +45,46 @@ namespace ControlHomeWork1.Controller
             }
         }
 
-        private async Task createPoints(int duration)
+        public void Reset()
         {
-            Random rand = new Random();
+            points = new Dictionary<Shape, HashSet<Point>>();
+            pointNotInPicture = new HashSet<Point>();
 
-            while (running)
+            foreach (Shape sh in Picture.Shapes)
             {
-                float x = (float)rand.NextDouble();
-                float y = (float)rand.NextDouble();
-                Point p = new Point(x, y);
-                addPoint(p);
-
-                if (running && duration > 0)
-                {
-                    Thread.Sleep(duration);
-                }
+                points.Add(sh, new HashSet<Point>());
             }
+        }
+
+        public float Square()
+        {
+            float inside = 0f;
+
+            foreach(HashSet<Point> set in points.Values)
+            {
+                inside += set.Count;
+            }
+
+            return inside / (inside + pointNotInPicture.Count);
+        }
+
+        private async Task createPoints()
+        {
+            await Task.Run(delegate {
+                Random rand = new Random();
+
+                while (running)
+                {
+                    lock (this)
+                    {
+                        float x = (float)rand.NextDouble();
+                        float y = (float)rand.NextDouble();
+                        Point p = new Point(x, y);
+                        addPoint(p);
+                    }
+                    
+                }
+            });
         }
 
         private void addPoint(Point p)

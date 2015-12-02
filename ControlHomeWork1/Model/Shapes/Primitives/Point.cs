@@ -12,6 +12,11 @@
         public float X { get; set; }
         public float Y { get; set; }
 
+        public override int GetHashCode()
+        {
+            return (int)(X * (1 << 16)) << 16 + (int)(Y * (1 << 16));
+        }
+
         public System.Drawing.Point ToDrawingPoint(int Width, int Height)
         {
             return new System.Drawing.Point((int)(X * Width), (int)(Y * Height));

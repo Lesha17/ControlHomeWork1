@@ -22,9 +22,18 @@ namespace ControlHomeWork1.Controller
                         return new Rectangle((int)(p.X * width), (int)(p.Y * height), 1, 1);
                     };
 
-            foreach (KeyValuePair<Shape, List<ControlHomeWork1.Model.Shapes.Primitives.Point>> entry in points)
+
+            foreach (KeyValuePair<Shape, HashSet<ControlHomeWork1.Model.Shapes.Primitives.Point>> entry in points)
             {
-                gr.FillRectangles(new SolidBrush(entry.Key.Color), entry.Value.Select(selector).ToArray());
+                if (entry.Value.Count > 0)
+                {
+                    gr.FillRectangles(new SolidBrush(entry.Key.Color), entry.Value.Select(selector).ToArray());
+                }
+            }
+
+            if (pointNotInPicture.Count > 0)
+            {
+                gr.FillRectangles(new SolidBrush(Color.DarkBlue), pointNotInPicture.Select(selector).ToArray());
             }
         }
     }
