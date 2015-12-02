@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using ControlHomeWork1.Model.Shapes.Parts;
+using ControlHomeWork1.Model.Shapes.Primitives;
 
 namespace ControlHomeWork1.Model
 {
@@ -13,12 +14,30 @@ namespace ControlHomeWork1.Model
             init();
         }
 
+        public List<Shape> Shapes
+        {
+            get { return shapes; }
+        }
+
         public void Draw(Graphics gr, int width, int height)
         {
             foreach(Shape shape in shapes)
             {
                 shape.Draw(gr, width, height);
             }
+        }
+
+        public Shape Shape(Shapes.Primitives.Point p)
+        {
+            foreach(Shape sh in shapes)
+            {
+                if (sh.IsInside(p))
+                {
+                    return sh;
+                }
+            }
+
+            return null;
         }
 
         public void PP(Shapes.Primitives.Point p, Graphics gr, int width, int height)
