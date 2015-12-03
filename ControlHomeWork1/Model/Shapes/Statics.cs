@@ -3,10 +3,13 @@ using ControlHomeWork1.Model.Shapes.Primitives;
 
 namespace ControlHomeWork1.Model.Shapes
 {
+    // Кое - какой повторяющийся код 
     class Statics
     {
+        // Pen для рисованя контура фигур
         public static readonly System.Drawing.Pen PEN = new System.Drawing.Pen(Color.DimGray, 4f);
         
+        // Проверяет, принадлежит ли точка p параллелограмму, образованному точкой M и векторами A и B
         public static bool IsInParallelogramm(Primitives.Point p, Primitives.Point M, Vector A, Vector B)
         {
             //Координаты вектора c = Mp

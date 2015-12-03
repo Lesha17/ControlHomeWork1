@@ -7,13 +7,21 @@ using System.Drawing;
 
 namespace ControlHomeWork1.Model
 {
+    //Представляет абстрактный класс фигуры
     public abstract class Shape
     {
         public Shape() { }
 
+        //Проверяет на принадлежность точки p фигуре
         public abstract bool IsInside(Shapes.Primitives.Point p);
+
+        //Рисует контур фигуры
         public abstract void Draw(Graphics gr, int width, int height);
+
+        //Рисует контур фигуры и красит её цветом Color
         public abstract void DrawColorful(Graphics gr, int width, int height);
-        public abstract Color Color { get; set; }
+
+        //Цвет для закрашивания фигуры
+        public virtual Color Color { get; set; }
     }
 }

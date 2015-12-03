@@ -1,9 +1,9 @@
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\bin\Debug\ControlHomeWork1.exe.config
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\bin\Debug\ControlHomeWork1.exe
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\bin\Debug\ControlHomeWork1.pdb
-c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.csprojResolveAssemblyReference.cache
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.Form1.resources
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.Properties.Resources.resources
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.csproj.GenerateResource.Cache
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.exe
 c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.pdb
+c:\users\алексей\documents\visual studio 2015\Projects\ControlHomeWork1\ControlHomeWork1\obj\Debug\ControlHomeWork1.csprojResolveAssemblyReference.cache

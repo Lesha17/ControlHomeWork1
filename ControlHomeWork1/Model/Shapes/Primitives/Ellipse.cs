@@ -3,11 +3,21 @@ using System.Drawing;
 
 namespace ControlHomeWork1.Model.Shapes.Primitives
 {
-    abstract class Ellipse : Shape
+    public class Ellipse : Shape
     {
-        public abstract Primitives.Point LC { get; } //Left Corner
-        public abstract float HD { get; } //Horizontal diameter
-        public abstract float VD { get; } //Vertical diameter
+        public virtual Point LC { get; set; } //Left Corner
+        public virtual float HD { get; set; } //Horizontal diameter
+        public virtual float VD { get; set; } //Vertical diameter
+
+        public Ellipse() { }
+
+        public Ellipse(Point LC, float HD, float VD, Color Color)
+        {
+            this.LC = LC;
+            this.HD = HD;
+            this.VD = VD;
+            this.Color = Color;
+        }
 
         //Принадлежность точки еллипсу
         public override bool IsInside(Primitives.Point p)
@@ -15,6 +25,7 @@ namespace ControlHomeWork1.Model.Shapes.Primitives
             float a = Math.Max(HD, VD) / 2f; // большая полуось
             float b = Math.Min(HD, VD) / 2f; // малая полуось
 
+            //эксцентриситет
             float e = (float)Math.Sqrt(Math.Pow(a, 2) - Math.Pow(b, 2)) / a;
 
             // Фокусы в Системе координат с центром, совпадающем с центром еллипса
@@ -24,6 +35,8 @@ namespace ControlHomeWork1.Model.Shapes.Primitives
             // Приводим к другой системе координат
             float _x = p.X - LC.X - HD / 2;
             float _y = p.Y - LC.Y - VD / 2;
+
+            //Важно, была большая полуось вертикальной, или горизонтальной
             if (VD > HD)
             {
                 return (Math.Sqrt(Math.Pow(_x, 2) + Math.Pow(f1 - _y, 2)) + Math.Sqrt(Math.Pow(_x, 2) + Math.Pow(f2 - _y, 2))) <= 2 * a;
@@ -34,6 +47,14 @@ namespace ControlHomeWork1.Model.Shapes.Primitives
             }
         }
 
+        //Нарисовать контур
+        public override void Draw(Graphics gr, int width, int height)
+        {
+            Rectangle r = new Rectangle((int)(LC.X * width), (int)(LC.Y * height), (int)(HD * width), (int)(VD * height));
+            gr.DrawEllipse(Statics.PEN, r);
+        }
+
+        //Нарисовать контур и закрасить цветом Color
         public override void DrawColorful(Graphics gr, int width, int height)
         {
             Rectangle r = new Rectangle((int)(LC.X * width), (int)(LC.Y * height), (int)(HD * width), (int)(VD * height));

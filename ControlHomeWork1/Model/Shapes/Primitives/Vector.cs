@@ -17,16 +17,19 @@
         public float X { get; set; }
         public float Y { get; set; }
 
+        //Сумма векторов v1 и v2
         public static Vector operator +(Vector v1, Vector v2)
         {
             return new Vector(v1.X + v2.X, v1.Y + v2.Y);
         }
 
+        //Разность векторов v1 и v2
         public static Vector operator -(Vector v1, Vector v2)
         {
             return new Vector(v1.X - v2.X, v1.Y - v2.Y);
         }
 
+        //Умножение на -1
         public static Vector operator -(Vector v)
         {
             return new Vector(-v.X, -v.Y);

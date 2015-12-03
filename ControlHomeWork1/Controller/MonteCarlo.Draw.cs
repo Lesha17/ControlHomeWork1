@@ -10,15 +10,16 @@ using System.Drawing;
 
 namespace ControlHomeWork1.Controller
 {
+    // Содержит метод отрисовки результатов работы метода Монте - Карло.
     partial class MonteCarlo
     {
+        // Отрисовывает данное изображение и сгенерированные точки.
         public void Draw(Graphics gr, int width, int height)
         {
+            // Сначала рисуем данное изображение.
             Picture.Draw(gr, width, height);
-
             
-
-
+            // Рисуем точки, попавшие в данное изображение.
             foreach (KeyValuePair<Shape, HashSet<ControlHomeWork1.Model.Shapes.Primitives.Point>> entry in points)
             {
                 if (entry.Value.Count > 0)
@@ -27,14 +28,19 @@ namespace ControlHomeWork1.Controller
                 }
             }
 
+            // Рисуем точки, не попавшие в данное изображение.
             if (pointNotInPicture.Count > 0)
             {
                 gr.FillRectangles(new SolidBrush(Color.DarkBlue), rects(pointNotInPicture, width, height));
             }
         }
 
+        // Создает массив прямоугольников для рисования в System.Drawing.Graphics
+        // из массива точек, представленных в относительных координатах.
         private Rectangle[] rects(IEnumerable<Model.Shapes.Primitives.Point> points, int width, int height)
         {
+            // Set используется потому, что в него не будут добавлятся точки с одинаковыми координатами,
+            // а, значит, впоследствии не будут обрабатываться несколько раз.
             HashSet<Point> dr_points = new HashSet<Point>();
 
             foreach(Model.Shapes.Primitives.Point p in points)

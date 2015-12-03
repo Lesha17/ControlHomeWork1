@@ -2,19 +2,36 @@
 
 namespace ControlHomeWork1.Model.Shapes.Primitives
 {
-    abstract class Triangle : Shape
+    public class Triangle : Shape
     {
-        public abstract Point M { get; }
+        //Треугольник образован точкой M и векторами A и B
 
-        public abstract Vector A { get; }
+        //точка M
+        public Point M { get; set; }
 
-        public abstract Vector B { get; }
+        //Вектор A
+        public Vector A { get; set; }
 
+        //Вектор B
+        public Vector B { get; set; }
+
+        public Triangle() { }
+
+        public Triangle(Point M, Vector A, Vector B)
+        {
+            this.M = M;
+            this.A = A;
+            this.B = B;
+        }
+
+        //Проверка на принадлежность треугольнику
         public override bool IsInside(Point p)
         {
+            //Через два параллелограмма
             return Statics.IsInParallelogramm(p, M, A, B) && Statics.IsInParallelogramm(p, M, A, B - A);
         }
 
+        //Нарисовать контур
         public override void Draw(Graphics gr, int width, int height)
         {
             System.Drawing.Point[] points = { M.ToDrawingPoint(width, height),
@@ -24,6 +41,7 @@ namespace ControlHomeWork1.Model.Shapes.Primitives
             gr.DrawPolygon(Statics.PEN, points);
         }
 
+        //Нарисовать контур и закрасить цветом Color
         public override void DrawColorful(System.Drawing.Graphics gr, int width, int height)
         {
             System.Drawing.Point[] points = {M.ToDrawingPoint(width, height),

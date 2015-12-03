@@ -3,12 +3,12 @@ using ControlHomeWork1.Model.Shapes.Primitives;
 
 namespace ControlHomeWork1.Model.Shapes.Parts
 {
-    class LeftEye : Ellipse
+    class Eye : Ellipse
     {
-        public override Primitives.Point LC { get; } = new Primitives.Point(0.89f, 0.52f); //Left Corner
-        public override float HD { get; } = 0.02f; //Horizontal diameter
-        public override float VD { get; } = 0.03f; //Vertical diameter
+        public override float HD { get; set; } = 0.02f; //Horizontal diameter
+        public override float VD { get; set; } = 0.03f; //Vertical diameter
 
+        // Незакрашенные глаза должны быть серыми...
         public override void Draw(Graphics gr, int width, int height)
         {
             Brush br = new SolidBrush(Color.Gray);

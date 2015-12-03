@@ -1,5 +1,6 @@
 ﻿namespace ControlHomeWork1.Model.Shapes.Primitives
 {
+    // Точка в относительных координатах
     public class Point
     {
         public Point() { }
@@ -12,16 +13,20 @@
         public float X { get; set; }
         public float Y { get; set; }
 
+        // Хитрое вычисление хэша
+        // Необходимо для определения одинаковых точек
         public override int GetHashCode()
         {
-            return (int)(X * (1 << 16)) << 16 + (int)(Y * (1 << 16));
+            return ((int)(X * (1 << 16))) << 16 + (int)(Y * (1 << 16));
         }
 
+        //Перевод в System.Drawing.Point
         public System.Drawing.Point ToDrawingPoint(int Width, int Height)
         {
             return new System.Drawing.Point((int)(X * Width), (int)(Y * Height));
         }
 
+        //Транспонирование на вектор v
         public static Point operator +(Point p, Vector v)
         {
             return new Point(p.X + v.X, p.Y + v.Y);

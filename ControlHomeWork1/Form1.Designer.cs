@@ -39,6 +39,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.s2_label = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.setTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.start2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,13 +73,12 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Location = new System.Drawing.Point(13, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(736, 258);
+            this.pictureBox1.Size = new System.Drawing.Size(609, 414);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox1, "Щёлкните дважны, чтобы увидеть в цвете");
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             this.pictureBox1.Resize += new System.EventHandler(this.pictureBox1_Resize);
             // 
             // tabControl1
@@ -90,11 +89,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.ItemSize = new System.Drawing.Size(78, 22);
-            this.tabControl1.Location = new System.Drawing.Point(12, 291);
+            this.tabControl1.Location = new System.Drawing.Point(12, 447);
             this.tabControl1.MinimumSize = new System.Drawing.Size(389, 104);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(736, 104);
+            this.tabControl1.Size = new System.Drawing.Size(609, 104);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -106,7 +105,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(728, 74);
+            this.tabPage1.Size = new System.Drawing.Size(601, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Бесконечный";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -117,7 +116,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.s1_label);
-            this.panel1.Location = new System.Drawing.Point(447, 2);
+            this.panel1.Location = new System.Drawing.Point(320, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 68);
             this.panel1.TabIndex = 6;
@@ -133,7 +132,6 @@
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Площадь:";
-            this.label1.Visible = false;
             // 
             // s1_label
             // 
@@ -144,14 +142,13 @@
             this.s1_label.Size = new System.Drawing.Size(18, 20);
             this.s1_label.TabIndex = 5;
             this.s1_label.Text = "s";
-            this.s1_label.Visible = false;
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Enabled = false;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(588, 41);
+            this.button3.Location = new System.Drawing.Point(461, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 27);
             this.button3.TabIndex = 4;
@@ -165,7 +162,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(588, 3);
+            this.button2.Location = new System.Drawing.Point(461, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 32);
             this.button2.TabIndex = 3;
@@ -198,10 +195,20 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(728, 74);
+            this.tabPage2.Size = new System.Drawing.Size(601, 74);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "С таймером";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(194, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "мс";
             // 
             // panel2
             // 
@@ -209,7 +216,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.s2_label);
-            this.panel2.Location = new System.Drawing.Point(447, 2);
+            this.panel2.Location = new System.Drawing.Point(320, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 68);
             this.panel2.TabIndex = 7;
@@ -225,7 +232,6 @@
             this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Площадь:";
-            this.label2.Visible = false;
             // 
             // s2_label
             // 
@@ -236,7 +242,6 @@
             this.s2_label.Size = new System.Drawing.Size(18, 20);
             this.s2_label.TabIndex = 5;
             this.s2_label.Text = "s";
-            this.s2_label.Visible = false;
             // 
             // comboBox1
             // 
@@ -279,7 +284,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(617, 6);
+            this.button4.Location = new System.Drawing.Point(490, 6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(105, 64);
             this.button4.TabIndex = 0;
@@ -295,7 +300,7 @@
             this.сТаймеромToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(761, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(634, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -353,6 +358,7 @@
             this.start2ToolStripMenuItem.Name = "start2ToolStripMenuItem";
             this.start2ToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.start2ToolStripMenuItem.Text = "Начать";
+            this.start2ToolStripMenuItem.Click += new System.EventHandler(this.start2ToolStripMenuItem_Click);
             // 
             // toolTip1
             // 
@@ -362,24 +368,15 @@
             this.toolTip1.ShowAlways = true;
             this.toolTip1.ToolTipTitle = "Подсказка";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(194, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "мс";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 405);
+            this.ClientSize = new System.Drawing.Size(634, 561);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(580, 300);
             this.Name = "Form1";

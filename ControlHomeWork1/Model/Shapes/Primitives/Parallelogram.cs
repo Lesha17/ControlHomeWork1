@@ -1,23 +1,34 @@
 ﻿namespace ControlHomeWork1.Model.Shapes.Primitives
 {
-    abstract class Parallelogram : Shape
+    public class Parallelogram : Shape
     {
         // Параллелограмм образован точкой M и вокторами A и B
 
         // вектор A
-        public abstract Vector A { get; }
+        public Vector A { get; set; }
 
         // вектор B
-        public abstract Vector B { get; }
+        public Vector B { get; set; }
 
         // точка M
-        public abstract Primitives.Point M { get; }
+        public Primitives.Point M { get; set; }
+
+        public Parallelogram() { }
+
+        public Parallelogram(Point M, Vector A, Vector B)
+        {
+            this.M = M;
+            this.A = A;
+            this.B = B;
+        }
+
         // Проверка на принадлежность параллелограмму
         public override bool IsInside(Primitives.Point p)
         {
             return Statics.IsInParallelogramm(p, M, A, B);
         }
 
+        //Нарисовать контур
         public override void Draw(System.Drawing.Graphics gr, int width, int height)
         {
             System.Drawing.Point[] points = {M.ToDrawingPoint(width, height),
@@ -29,6 +40,7 @@
 
         }
 
+        //Нарисовать контур и закрасить цветом Color
         public override void DrawColorful(System.Drawing.Graphics gr, int width, int height)
         {
             System.Drawing.Point[] points = {M.ToDrawingPoint(width, height),

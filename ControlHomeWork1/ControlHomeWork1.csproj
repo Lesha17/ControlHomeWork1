@@ -54,28 +54,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1_InterfaceCallbacks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_PrivateMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Model\Picture.cs" />
     <Compile Include="Model\Shapes\Primitives\Point.cs" />
-    <Compile Include="Model\Shapes\Parts\Body.cs" />
     <Compile Include="Model\Shapes\Statics.cs" />
     <Compile Include="Model\Shapes\Primitives\Ellipse.cs" />
-    <Compile Include="Model\Shapes\Parts\Head.cs" />
-    <Compile Include="Model\Shapes\Parts\LeftArm.cs" />
-    <Compile Include="Model\Shapes\Parts\LeftEye.cs" />
-    <Compile Include="Model\Shapes\Parts\LeftFoot.cs" />
-    <Compile Include="Model\Shapes\Parts\LeftHand.cs" />
-    <Compile Include="Model\Shapes\Parts\LeftLeg.cs" />
+    <Compile Include="Model\Eye.cs" />
     <Compile Include="Model\Shapes\Primitives\Parallelogram.cs" />
-    <Compile Include="Model\Shapes\Parts\RightArm.cs" />
-    <Compile Include="Model\Shapes\Parts\RightEye.cs" />
-    <Compile Include="Model\Shapes\Parts\RightFoot.cs" />
-    <Compile Include="Model\Shapes\Parts\RightHand.cs" />
-    <Compile Include="Model\Shapes\Parts\RightLeg.cs" />
     <Compile Include="Model\Shapes\Primitives\Triangle.cs" />
     <Compile Include="Model\Shapes\Primitives\Vector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\Shapes\Shape.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
