@@ -27,28 +27,20 @@ namespace ControlHomeWork1.Model
             }
         }
 
-        public Shape Shape(Shapes.Primitives.Point p)
-        {
-            foreach(Shape sh in shapes)
-            {
-                if (sh.IsInside(p))
-                {
-                    return sh;
-                }
-            }
-
-            return null;
-        }
-
-        public void PP(Shapes.Primitives.Point p, Graphics gr, int width, int height)
+        public void DrawColorfull(Graphics gr, int width, int height)
         {
             foreach (Shape shape in shapes)
             {
-                if (shape.IsInside(p))
-                {
-                    shape.DrawColorful(gr, width, height);
-                }
+                shape.DrawColorful(gr, width, height);
             }
+        }
+
+        public Shape Shape(Shapes.Primitives.Point p)
+        {
+            return shapes.FindLast((System.Predicate<Model.Shape>) delegate (Shape sh)
+            {
+                return sh.IsInside(p);
+            });
         }
 
         private void init()
@@ -86,10 +78,11 @@ namespace ControlHomeWork1.Model
             shapes.Add(ra);
             shapes.Add(rh);
 
+            shapes.Add(h);
+
             shapes.Add(le);
             shapes.Add(re);
 
-            shapes.Add(h);
         }
     }
 }
