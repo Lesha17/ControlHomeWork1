@@ -12,8 +12,8 @@ namespace ControlHomeWork1.Controller
 {
     partial class MonteCarlo
     {
-        private Dictionary<Shape, HashSet<Point>> points;
-        private HashSet<Point> pointNotInPicture;
+        private Dictionary<Shape, HashSet<Point>> points = new Dictionary<Shape, HashSet<Point>>();
+        private HashSet<Point> pointNotInPicture = new HashSet<Point>();
         private Boolean running = false;
 
         public Picture Picture { get; set; }
@@ -25,7 +25,7 @@ namespace ControlHomeWork1.Controller
             Reset();
         }
 
-        
+
 
         public async Task Start()
         {
@@ -45,32 +45,46 @@ namespace ControlHomeWork1.Controller
             }
         }
 
-        public void Reset()
+        public async Task Reset()
         {
-            points = new Dictionary<Shape, HashSet<Point>>();
-            pointNotInPicture = new HashSet<Point>();
-
-            foreach (Shape sh in Picture.Shapes)
+            lock (this)
             {
-                points.Add(sh, new HashSet<Point>());
+                points.Clear();
+                pointNotInPicture.Clear();
+
+                foreach (Shape sh in Picture.Shapes)
+                {
+                    points.Add(sh, new HashSet<Point>());
+                }
             }
         }
 
-        public float Square()
+        public int Inside()
         {
-            float inside = 0f;
+            int inside = 0;
 
-            foreach(HashSet<Point> set in points.Values)
+            foreach (HashSet<Point> set in points.Values)
             {
                 inside += set.Count;
             }
 
-            return inside / (inside + pointNotInPicture.Count);
+            return inside;
+        }
+
+        public int All()
+        {
+            return Inside() + pointNotInPicture.Count;
+        }
+
+        public float Square()
+        {
+            return 100 * (float)Inside() / All();
         }
 
         private async Task createPoints()
         {
-            await Task.Run(delegate {
+            await Task.Run(delegate
+            {
                 Random rand = new Random();
 
                 while (running)
@@ -82,7 +96,7 @@ namespace ControlHomeWork1.Controller
                         Point p = new Point(x, y);
                         addPoint(p);
                     }
-                    
+
                 }
             });
         }
@@ -90,7 +104,7 @@ namespace ControlHomeWork1.Controller
         private void addPoint(Point p)
         {
             Shape sh = Picture.Shape(p);
-            if(sh != null)
+            if (sh != null)
             {
                 points[sh].Add(p);
             }

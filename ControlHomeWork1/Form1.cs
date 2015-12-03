@@ -56,7 +56,7 @@ namespace ControlHomeWork1
 
         private void show_sq()
         {
-            float s = monteCarlo.Square() * 100;
+            float s = monteCarlo.Square();
 
             panel1.Visible = panel2.Visible = !float.IsNaN(s);
 
@@ -69,12 +69,14 @@ namespace ControlHomeWork1
             s2_label.Visible = true;
         }
 
-        private async void button1_Click(object sender, System.EventArgs e)
+        private async void start1()
         {
             button2.Enabled = true;
+            stopToolStripMenuItem.Enabled = true;
             button3.Enabled = false;
+            contToolStripMenuItem.Enabled = false;
 
-            monteCarlo.Reset();
+            await monteCarlo.Reset();
             draw_watch.Reset();
             pictureBox1.Refresh();
             paintTimer.Start();
@@ -82,35 +84,61 @@ namespace ControlHomeWork1
             await monteCarlo.Start();
         }
 
-        private async void button2_Click(object sender, System.EventArgs e)
+        private async void stop()
         {
+            paintTimer.Stop();
+
             await monteCarlo.Stop();
+            
             pictureBox1.Refresh();
 
             button2.Enabled = false;
+            stopToolStripMenuItem.Enabled = false;
             button3.Enabled = true;
+            contToolStripMenuItem.Enabled = true;
         }
 
-        private async void button3_Click(object sender, System.EventArgs e)
+        private async void cont()
         {
             button2.Enabled = true;
+            stopToolStripMenuItem.Enabled = true;
             button3.Enabled = false;
+            contToolStripMenuItem.Enabled = false;
+
+            paintTimer.Start();
 
             await monteCarlo.Start();
             pictureBox1.Refresh();
         }
 
-        private async void button4_Click(object sender, System.EventArgs e)
+        private async void start2()
         {
+            paintTimer.Stop();
+            
             button2.Enabled = true;
+            stopToolStripMenuItem.Enabled = true;
             button3.Enabled = false;
+            contToolStripMenuItem.Enabled = false;
 
-            monteCarlo.Reset();
+            await monteCarlo.Stop();
+
+            await monteCarlo.Reset();
+
+            pictureBox1.Refresh();
+
             int val = 0;
             if (!int.TryParse(comboBox1.Text, out val))
             {
+                MessageBox.Show("Введите время должно быть целым положительным числом", "Ошибка");
                 return;
             }
+
+            if(val <= 0)
+            {
+                MessageBox.Show("Введите время должно быть целым положительным числом", "Ошибка");
+                return;
+            }
+            
             Timer timer = new Timer();
             timer.Enabled = false;
             timer.Interval = val;
@@ -118,9 +146,31 @@ namespace ControlHomeWork1
 
             timer.Start();
             await monteCarlo.Start();
-            
+
             button2.Enabled = false;
+            stopToolStripMenuItem.Enabled = false;
             button3.Enabled = true;
+            contToolStripMenuItem.Enabled = true;
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            start1();
+        }
+
+        private void button2_Click(object sender, System.EventArgs e)
+        {
+            stop();
+        }
+
+        private void button3_Click(object sender, System.EventArgs e)
+        {
+            cont();
+        }
+
+        private void button4_Click(object sender, System.EventArgs e)
+        {
+            start2();
         }
 
         private async void Timer_Tick(object sender, System.EventArgs e)
@@ -145,6 +195,58 @@ namespace ControlHomeWork1
             drawColorfull = !drawColorfull;
 
             pictureBox1.Invalidate();
+        }
+        
+        private void start1ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            start1();
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            stop();
+        }
+
+        private void contToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            cont();
+        }
+
+        private void setTimeToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            tabControl1.SelectTab(1);
+            comboBox1.Select();
+        }
+
+        private void pictureBox1_MouseHover(object sender, System.EventArgs e)
+        {
+            toolTip1.Show("", this);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if(comboBox1.Text == "100500100500")
+            {
+                MessageBox.Show("Ха - Ха", "Это шутка!");
+            }
+        }
+
+        private void showInfo()
+        {
+            MessageBox.Show(string.Format("Всего вброшено: {0}\n" +
+                 "Попало в фигуру: {1}\n" +
+                "Площадь: {2} %", monteCarlo.All(), monteCarlo.Inside(), monteCarlo.Square()),
+                "Информация");
+        }
+
+        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            showInfo();
+        }
+
+        private void panel2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            showInfo();
         }
     }
 }

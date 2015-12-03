@@ -28,28 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.s1_label = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.s2_label = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.s2_label = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labeloftime = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.start1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сТаймеромToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.start2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -59,13 +71,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(736, 272);
+            this.pictureBox1.Size = new System.Drawing.Size(736, 258);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Щёлкните дважны, чтобы увидеть в цвете");
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             this.pictureBox1.Resize += new System.EventHandler(this.pictureBox1_Resize);
             // 
             // tabControl1
@@ -77,6 +91,7 @@
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.ItemSize = new System.Drawing.Size(78, 22);
             this.tabControl1.Location = new System.Drawing.Point(12, 291);
+            this.tabControl1.MinimumSize = new System.Drawing.Size(389, 104);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(736, 104);
@@ -96,6 +111,30 @@
             this.tabPage1.Text = "Бесконечный";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.s1_label);
+            this.panel1.Location = new System.Drawing.Point(447, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(134, 68);
+            this.panel1.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.panel1, "Щёлкните дважды для получения подробностей");
+            this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Площадь:";
+            this.label1.Visible = false;
+            // 
             // s1_label
             // 
             this.s1_label.AutoSize = true;
@@ -110,24 +149,28 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Enabled = false;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(588, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 27);
             this.button3.TabIndex = 4;
             this.button3.Text = "Продолжить";
+            this.toolTip1.SetToolTip(this.button3, "Продолжить выполнение");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(588, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 32);
             this.button2.TabIndex = 3;
             this.button2.Text = "Остановить";
+            this.toolTip1.SetToolTip(this.button2, "Приостановить выполнение");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -141,22 +184,13 @@
             this.button1.Size = new System.Drawing.Size(105, 64);
             this.button1.TabIndex = 2;
             this.button1.Text = "Начать";
+            this.toolTip1.SetToolTip(this.button1, "Запустить в режиме бесконечного выполнения");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Площадь:";
-            this.label1.Visible = false;
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.labeloftime);
@@ -169,16 +203,18 @@
             this.tabPage2.Text = "С таймером";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // s2_label
+            // panel2
             // 
-            this.s2_label.AutoSize = true;
-            this.s2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.s2_label.Location = new System.Drawing.Point(3, 37);
-            this.s2_label.Name = "s2_label";
-            this.s2_label.Size = new System.Drawing.Size(18, 20);
-            this.s2_label.TabIndex = 5;
-            this.s2_label.Text = "s";
-            this.s2_label.Visible = false;
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.s2_label);
+            this.panel2.Location = new System.Drawing.Point(447, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(134, 68);
+            this.panel2.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.panel2, "Щёлкните дважды для получения подробностей");
+            this.panel2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDoubleClick);
             // 
             // label2
             // 
@@ -191,13 +227,42 @@
             this.label2.Text = "Площадь:";
             this.label2.Visible = false;
             // 
+            // s2_label
+            // 
+            this.s2_label.AutoSize = true;
+            this.s2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.s2_label.Location = new System.Drawing.Point(3, 37);
+            this.s2_label.Name = "s2_label";
+            this.s2_label.Size = new System.Drawing.Size(18, 20);
+            this.s2_label.TabIndex = 5;
+            this.s2_label.Text = "s";
+            this.s2_label.Visible = false;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "10",
+            "50",
+            "100",
+            "250",
+            "500",
+            "1000",
+            "2000",
+            "5000",
+            "10000",
+            "20000",
+            "50000",
+            "100000",
+            "100500",
+            "100500100500"});
             this.comboBox1.Location = new System.Drawing.Point(6, 30);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(398, 25);
+            this.comboBox1.Size = new System.Drawing.Size(182, 25);
             this.comboBox1.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.comboBox1, "Введите сюда время в миллисекундах, спустя которое выполнение остановится");
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labeloftime
             // 
@@ -219,30 +284,93 @@
             this.button4.Size = new System.Drawing.Size(105, 64);
             this.button4.TabIndex = 0;
             this.button4.Text = "Начать";
+            this.toolTip1.SetToolTip(this.button4, "Запустить в режиме таймера");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // panel1
+            // menuStrip1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.s1_label);
-            this.panel1.Location = new System.Drawing.Point(417, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 68);
-            this.panel1.TabIndex = 6;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.сТаймеромToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(761, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // panel2
+            // toolStripMenuItem1
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.s2_label);
-            this.panel2.Location = new System.Drawing.Point(417, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(134, 68);
-            this.panel2.TabIndex = 7;
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.start1ToolStripMenuItem,
+            this.stopToolStripMenuItem,
+            this.contToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(94, 20);
+            this.toolStripMenuItem1.Text = "Бесконечный";
+            // 
+            // start1ToolStripMenuItem
+            // 
+            this.start1ToolStripMenuItem.Name = "start1ToolStripMenuItem";
+            this.start1ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.start1ToolStripMenuItem.Text = "Начать";
+            this.start1ToolStripMenuItem.Click += new System.EventHandler(this.start1ToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Enabled = false;
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.stopToolStripMenuItem.Text = "Остановить";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
+            // 
+            // contToolStripMenuItem
+            // 
+            this.contToolStripMenuItem.Enabled = false;
+            this.contToolStripMenuItem.Name = "contToolStripMenuItem";
+            this.contToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.contToolStripMenuItem.Text = "Продолжить";
+            this.contToolStripMenuItem.Click += new System.EventHandler(this.contToolStripMenuItem_Click);
+            // 
+            // сТаймеромToolStripMenuItem
+            // 
+            this.сТаймеромToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setTimeToolStripMenuItem,
+            this.start2ToolStripMenuItem});
+            this.сТаймеромToolStripMenuItem.Name = "сТаймеромToolStripMenuItem";
+            this.сТаймеромToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.сТаймеромToolStripMenuItem.Text = "С таймером";
+            // 
+            // setTimeToolStripMenuItem
+            // 
+            this.setTimeToolStripMenuItem.Name = "setTimeToolStripMenuItem";
+            this.setTimeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.setTimeToolStripMenuItem.Text = "Установить время";
+            this.setTimeToolStripMenuItem.Click += new System.EventHandler(this.setTimeToolStripMenuItem_Click);
+            // 
+            // start2ToolStripMenuItem
+            // 
+            this.start2ToolStripMenuItem.Name = "start2ToolStripMenuItem";
+            this.start2ToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.start2ToolStripMenuItem.Text = "Начать";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 500;
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.ToolTipTitle = "Подсказка";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(194, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "мс";
             // 
             // Form1
             // 
@@ -251,18 +379,24 @@
             this.ClientSize = new System.Drawing.Size(761, 405);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(580, 300);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "КДЗ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,6 +418,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem start1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сТаймеромToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem start2ToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
