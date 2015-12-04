@@ -1,4 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/*
+    Контрольное домашнее задание модуль 2
+    Дисциплина: Программирование
+    Группа: БПИ154(2)
+    Студент: Мачнев Алексей Евгеньевич
+    Вариант: 14
+    Дата: 04.12.2015
+*/
+
+using System.Collections.Generic;
 using System.Drawing;
 using ControlHomeWork1.Model.Shapes.Parts;
 using ControlHomeWork1.Model.Shapes.Primitives;

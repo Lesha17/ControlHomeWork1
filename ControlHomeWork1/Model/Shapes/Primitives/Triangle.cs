@@ -1,4 +1,13 @@
-﻿using System.Drawing;
+﻿/*
+    Контрольное домашнее задание модуль 2
+    Дисциплина: Программирование
+    Группа: БПИ154(2)
+    Студент: Мачнев Алексей Евгеньевич
+    Вариант: 14
+    Дата: 04.12.2015
+*/
+
+using System.Drawing;
 
 namespace ControlHomeWork1.Model.Shapes.Primitives
 {
